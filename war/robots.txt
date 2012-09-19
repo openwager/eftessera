@@ -1,0 +1,8 @@
+#
+#  File: /robots.txt file for ATC
+#
+
+User-agent: *
+Disallow: /
+
+# EOF

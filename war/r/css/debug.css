@@ -1,0 +1,78 @@
+
+
+#debug  { 
+	margin-top: 100px; 
+	x-background-color: #eee; 
+	x-border: 1px solid #ccc; 
+	margin: 100px 30px 30px 30px;
+	x-padding: 10px;	
+}
+
+table.debug {
+	border-left: 1px solid gray;
+	border-collapse: collapse;
+	border-top: 1px solid gray;  
+}
+
+table.debug th {
+	background: #ccc;
+	color: #666;
+}
+
+table.debug tr:hover {
+	background-color: #ffc;  
+	}
+
+table.debug td, table.debug th {
+	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+	padding: 3px; 	
+}
+
+
+#debug .yui-navset .yui-nav 
+{
+	x-border: solid #936; 
+	x-border-width: 0 0 2px 0;
+	border: none;  
+	zoom: 1;
+}
+#debug .yui-navset .yui-nav li
+{
+	margin: 0 5px 0 0;
+	padding: 1px 0 0; 
+	zoom: 1; 
+}
+
+#debug .yui-navset .yui-nav li
+{
+	padding: 4px 8px;
+	border: 2px solid #936;
+	border-bottom: none;
+	background: #f1f1f1; 
+}
+
+#debug .yui-navset .yui-nav .selected 
+{
+	background: #936; 
+	color: white; 
+}
+
+#debug .yui-navset .yui-content 
+{
+	border: 2px solid #936; 	
+	background: #f1f1f1; 
+	padding: 5px 10px;;
+}
+
+#debug .yui-navset a
+{
+	color: #666;
+}  
+
+#debug .yui-navset .selected a  
+{
+	color: white;  	
+}
+
+/* EOF */

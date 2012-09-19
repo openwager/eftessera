@@ -1,0 +1,37 @@
+<?xml version="1.0"?> 
+
+<mappings>
+	<prefix name="/test">
+
+
+		
+		<!-- ACTION: /test1 -->
+	
+		<action name="1">
+			<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+				<property name="title" value="Tessera - Test Page 1" />  
+			</interceptor>
+			<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+				<property name="slot.0" value="body" /> 
+				<property name="path.0" value="/WEB-INF/page/test/test1.jsp" /> 
+			</interceptor>
+		</action>
+		
+		<action name="2">
+			<interceptor class="com.tessera.intercept.login.IfNotLoggedInInterceptor">
+				<interceptor class="com.tessera.intercept.util.RecoverableRedirectInterceptor">
+					<property name="uri" value="/loginForm" />
+				</interceptor>
+			</interceptor>
+			<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+				<property name="title" value="Tessera - Test Page 2" />  
+			</interceptor>
+			<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+				<property name="slot.0" value="body" /> 
+				<property name="path.0" value="/WEB-INF/page/test/test2.jsp" /> 
+			</interceptor>
+		</action>
+	</prefix>
+</mappings>
+
+<!-- EOF --> 

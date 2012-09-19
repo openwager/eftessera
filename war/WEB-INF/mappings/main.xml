@@ -1,0 +1,15 @@
+<?xml version="1.0"?> 
+
+<mappings> 
+		<action name="/">
+			<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+				<property name="title" value="Tessera - Home" />  
+			</interceptor>
+			<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+				<property name="slot.0" value="body" /> 
+				<property name="path.0" value="/WEB-INF/page/main/index.jsp" /> 
+			</interceptor>
+		</action>
+</mappings>
+
+<!-- EOF --> 

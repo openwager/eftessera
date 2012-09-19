@@ -1,0 +1,37 @@
+<?xml version="1.0"?> 
+
+<mappings>
+	<action name="debug">
+		<interceptor class="com.tessera.intercept.jsp.AddStylesheetsInterceptor">
+			<property name="path.0" value="/tessera/r/css/debug.css" /> 
+		</interceptor>
+		<interceptor class="com.tessera.intercept.jsp.CreateContainersInterceptor">
+			 <property name="slot" value="debug" /> 
+		</interceptor>
+		<interceptor class="com.tessera.intercept.jsp.AddJspsInterceptor">
+			<property name="slot.0" value="debug" /> 
+			<property name="path.0" value="/WEB-INF/page/debug/tabs.jsp" /> 
+		<!-- 
+			<property name="slot.0" value="debug" /> 
+			<property name="path.0" value="/WEB-INF/page/debug/cookies.jsp" /> 
+			<property name="slot.1" value="debug" /> 
+			<property name="path.1" value="/WEB-INF/page/debug/header.jsp" /> 
+			<property name="slot.2" value="debug" /> 
+			<property name="path.2" value="/WEB-INF/page/debug/parameters.jsp" /> 
+			<property name="slot.3" value="debug" /> 
+			<property name="path.3" value="/WEB-INF/page/debug/request.jsp" /> 
+			<property name="slot.4" value="debug" /> 
+			<property name="path.4" value="/WEB-INF/page/debug/requestAttrs.jsp" /> 
+			<property name="slot.5" value="debug" /> 
+			<property name="path.5" value="/WEB-INF/page/debug/servlet.jsp" /> 
+			<property name="slot.6" value="debug" /> 
+			<property name="path.6" value="/WEB-INF/page/debug/session.jsp" /> 
+			<property name="slot.7" value="debug" /> 
+			<property name="path.7" value="/WEB-INF/page/debug/forms.jsp" /> 
+		-->
+		</interceptor>
+	</action>
+ 
+</mappings>
+
+<!-- EOF --> 

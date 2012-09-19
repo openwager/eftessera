@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+
+<mappings>
+	<prefix name="/tessera">
+		<prefix name="action">
+		
+			<action name="showActionForm">
+				<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+					<property name="class" value="com.tessera.site.tessera.action.GetForm" />
+					<property name="attr" value="form" />  
+					<property name="clobber" value="NONE" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Show Action" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/tessera/action/showActionForm.jsp" /> 
+				</interceptor>
+			</action>
+			
+			<action name="showAction">
+				<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+					<property name="uri" value="/tessera/action/showActionForm" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+					<property name="class" value="com.tessera.site.tessera.action.GetForm" />
+					<property name="debug" value="true" /> 
+					<property name="attr" value="form" />  
+				</interceptor>
+				<interceptor class="com.tessera.site.tessera.action.GetInterceptor" /> 
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Show Action Details" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/tessera/action/showAction.jsp" /> 
+				</interceptor>
+			</action>
+			
+			<action name="showActions">
+				<interceptor class="com.tessera.site.tessera.action.GetAllInterceptor" /> 
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Show Actions" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/tessera/action/showActions.jsp" /> 
+				</interceptor>
+			</action>
+		
+		</prefix>
+	</prefix>
+</mappings>
+
+<!-- EOF --> 

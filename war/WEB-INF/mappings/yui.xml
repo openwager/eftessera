@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<mappings>
+	<prefix name="yui">
+		<prefix name="tools">
+			<action name="reset">
+				<interceptor class="com.tessera.intercept.jsp.AddStylesheetsInterceptor">
+					<property name="path.0" value="/tessera/r/yui/reset/reset.css" /> 
+				</interceptor>
+			</action>
+			
+			<action name="base">
+				<interceptor class="com.tessera.intercept.jsp.AddStylesheetsInterceptor">
+					<property name="path.0" value="/tessera/r/yui/reset/reset.css" /> 
+					<property name="path.1" value="/tessera/r/yui/fonts/fonts.css" /> 
+					<property name="path.2" value="/tessera/r/yui/base/base.css" /> 
+				</interceptor>
+			</action>
+			
+			<action name="fonts">
+				<interceptor class="com.tessera.intercept.jsp.AddStylesheetsInterceptor">
+					<property name="path.0" value="/tessera/r/yui/reset/reset.css" /> 
+					<property name="path.1" value="/tessera/r/yui/fonts/fonts.css" /> 
+				</interceptor>
+			</action>
+			
+			<action name="grids">
+				<interceptor class="com.tessera.intercept.jsp.AddStylesheetsInterceptor">
+					<property name="path.0" value="/tessera/r/yui/reset-fonts-grids/reset-fonts-grids.css" /> 
+				</interceptor>
+			</action>
+		</prefix>				
+		
+	</prefix>
+</mappings>
+
+<!-- EOF --> 

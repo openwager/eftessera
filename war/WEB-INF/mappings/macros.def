@@ -1,0 +1,10 @@
+<?xml version="1.0" ?> 
+
+<mappings> 
+	<define name="foo" required="a,b,c">
+		<!-- DECLARATION GOES HERE --> 
+		<!-- ESCAPE USING %{a}, etc. --> 
+	</define> 
+</mappings> 
+
+<!-- EOF --> 

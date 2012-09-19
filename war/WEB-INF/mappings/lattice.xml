@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+
+<mappings>
+	<prefix name="/lattice">
+		<prefix name="validator">
+		
+			<action name="showForm">
+				<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+					<property name="class" value="com.tessera.site.lattice.GetValidatorForm" />
+					<property name="attr" value="form" />  
+					<property name="clobber" value="NONE" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Lattice - Get Validator" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/lattice/validator/showForm.jsp" /> 
+				</interceptor>
+			</action>
+			
+			<action name="show">
+				<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+					<property name="uri" value="/lattice/validator/showForm" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+					<property name="class" value="com.tessera.site.lattice.GetValidatorForm" />
+					<property name="debug" value="true" /> 
+					<property name="attr" value="form" />  
+				</interceptor>
+				<interceptor class="com.tessera.site.lattice.GetValidatorInterceptor" /> 
+				<!-- show the page -->			
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Lattice - Get Validator Results" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/lattice/validator/show.jsp" /> 
+				</interceptor>
+			</action>
+		
+			<action name="showValidators">
+				<interceptor class="com.tessera.site.lattice.GetRegisteredValidatorsInterceptor" /> 
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Lattice - Registered Validator" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/lattice/validator/showValidators.jsp" /> 
+				</interceptor>
+			</action>
+			
+		</prefix>		
+	</prefix>
+</mappings> 
+
+<!-- EOF --> 

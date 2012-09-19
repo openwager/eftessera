@@ -1,0 +1,109 @@
+<?xml version="1.0"?> 
+
+<mappings> 
+	<prefix name="%">
+		<action name="login">
+			<interceptor class="com.tessera.intercept.login.InitLoginManagerInterceptor">
+				<property name="class" value="com.tessera.site.login.SiteLoginManager" /> 
+			</interceptor>
+ 		</action>
+	</prefix>
+
+	<action name="/loginForm">
+		<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+			<property name="class" value="com.tessera.site.login.LoginForm" />
+			<property name="attr" value="form" />  
+			<property name="clobber" value="NONE" /> 
+		</interceptor>
+		<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+			<property name="title" value="Tessera - Login" />  
+		</interceptor>
+		<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+			<property name="slot.0" value="body" /> 
+			<property name="path.0" value="/WEB-INF/page/login/loginForm.jsp" /> 
+		</interceptor>
+	</action>
+	
+	<action name="/login">
+		<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+			<property name="uri" value="/loginForm" /> 
+		</interceptor>
+		<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+			<property name="class" value="com.tessera.site.login.LoginForm" />
+			<property name="debug" value="true" /> 
+			<property name="attr" value="form" />  
+		</interceptor>
+		<interceptor class="com.tessera.intercept.login.LoginInterceptor" />
+		<interceptor class="com.tessera.site.login.IfRememberMeInterceptor">
+			<case name="true">
+				<interceptor class="com.tessera.intercept.login.cookie.SetBCookieInterceptor" >
+					<property name="generator" value="com.tessera.site.login.CookieGenerator" /> 
+					<property name="domain" value=".weaselworks.com" />
+					<property name="maxAge" value="1000000" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.login.cookie.SetCCookieInterceptor" >
+					<property name="generator" value="com.tessera.site.login.CookieGenerator" /> 
+					<property name="domain" value=".weaselworks.com" />
+					<property name="maxAge" value="1000000" /> 
+				</interceptor> 
+			</case>
+			<case name="false">
+				<interceptor class="com.tessera.intercept.login.cookie.RemoveBCookieInterceptor">
+					<property name="domain" value=".weaselworks.com" />
+				</interceptor> 
+				<interceptor class="com.tessera.intercept.login.cookie.RemoveCCookieInterceptor">
+					<property name="domain" value=".weaselworks.com" />
+				</interceptor> 
+			</case>
+		</interceptor>
+        <interceptor class="com.tessera.intercept.util.IfRecoverableRedirectInterceptor">
+                <interceptor class="com.tessera.intercept.util.RecoverRedirectInterceptor" />
+        </interceptor>
+        <interceptor class="com.tessera.intercept.util.SendRedirectInterceptor">
+                <property name="page" value="/" />
+        </interceptor>
+	</action>
+	
+	<action name="/logout">
+		<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+			<property name="uri" value="/" /> 
+		</interceptor>
+		<interceptor class="com.tessera.intercept.login.IfLoggedInInterceptor" >
+			<interceptor class="com.tessera.intercept.login.LogoutInterceptor" />
+			<interceptor class="com.tessera.intercept.login.cookie.RemoveCCookieInterceptor" >
+				<property name="domain" value=".weaselworks.com" />
+			</interceptor>
+		</interceptor>		
+        <interceptor class="com.tessera.intercept.util.SendRedirectInterceptor">
+			<property name="page" value="/"/>
+		</interceptor>	
+	</action>
+
+	<action name="/loginStatus">
+		<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+			<property name="title" value="Tessera - Login" />  
+		</interceptor>
+		<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+			<property name="slot.0" value="body" /> 
+			<property name="path.0" value="/WEB-INF/page/login/showLoginManager.jsp" /> 
+		</interceptor>
+	</action>
+	
+	<action name="/login/clearCookies">
+		<interceptor class="com.tessera.intercept.login.cookie.RemoveACookieInterceptor" >
+			<property name="domain" value=".weaselworks.com" />
+		</interceptor>
+	 	<interceptor class="com.tessera.intercept.login.cookie.RemoveBCookieInterceptor" >
+			<property name="domain" value=".weaselworks.com" />
+		</interceptor>
+		<interceptor class="com.tessera.intercept.login.cookie.RemoveCCookieInterceptor" >
+			<property name="domain" value=".weaselworks.com" />
+		</interceptor>
+        <interceptor class="com.tessera.intercept.util.SendRedirectInterceptor">
+			<property name="page" value="/"/>
+		</interceptor>	
+	 </action>
+
+</mappings>
+
+<!-- EOF --> 

@@ -1,0 +1,16 @@
+<?xml version="1.0"?> 
+
+<mappings> 
+	<prefix name="%">
+		
+		<!-- An init action that prints a message to the console -->
+	
+		<action name="initHello">
+			<interceptor class="com.tessera.intercept.util.SystemErrInterceptor">
+				<property name="expression" value="Tessera initialized." /> 
+			</interceptor>
+		</action>
+	</prefix>
+</mappings>
+
+<!-- EOF --> 

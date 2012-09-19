@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+
+<mappings>
+	<prefix name="/form">
+	
+		<!-- simple form -->
+		
+		<prefix name="simple">
+			<action name="form">
+				<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+					<property name="class" value="com.tessera.site.form.simple.SimpleForm" />
+					<property name="attr" value="form" />  
+					<property name="clobber" value="NONE" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Simple Form" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/simple/input.jsp" /> 
+				</interceptor>
+			</action>
+			
+			<action name="submit">
+				<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+					<property name="uri" value="/form/simple/form" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+					<property name="class" value="com.tessera.site.form.simple.SimpleForm" />
+					<property name="debug" value="true" /> 
+					<property name="attr" value="form" />  
+				</interceptor>
+				<interceptor class="com.tessera.site.form.simple.SimpleInterceptor" /> 
+				<!-- show the page -->			
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Simple Form Results" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/simple/output.jsp" /> 
+				</interceptor>
+			</action>
+		</prefix>
+		
+		<!-- type form -->
+		
+		<prefix name="types">
+			<action name="form">				
+				<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+					<property name="class" value="com.tessera.site.form.types.TypesForm" />
+					<property name="attr" value="form" />  
+					<property name="clobber" value="NONE" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Types Form" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/types/input.jsp" /> 
+				</interceptor>
+			</action>
+			
+			<action name="submit">
+				<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+					<property name="uri" value="/form/types/form" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+					<property name="class" value="com.tessera.site.form.types.TypesForm" />
+					<property name="debug" value="true" /> 
+					<property name="attr" value="form" />  
+				</interceptor>
+				<interceptor class="com.tessera.site.form.types.TypesInterceptor" /> 
+				<!-- show the page -->			
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Types Form Results" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/types/output.jsp" /> 
+				</interceptor>
+			</action>
+		</prefix>
+
+		<!-- enums form -->
+		
+		<prefix name="enums">
+			<action name="form">				
+				<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+					<property name="class" value="com.tessera.site.form.enums.EnumsForm" />
+					<property name="attr" value="form" />  
+					<property name="clobber" value="NONE" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Enums Form" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/enums/form.jsp" /> 
+				</interceptor>
+			</action>
+			
+			<action name="submit">
+				<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+					<property name="uri" value="/form/enums/form" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+					<property name="class" value="com.tessera.site.form.enums.EnumsForm" />
+					<property name="debug" value="true" />
+					<property name="enumNameConverter.0" value="com.tessera.site.form.enums.PrettyColor" /> 
+					<property name="enumNameConverter.1" value="com.tessera.site.form.enums.Gender" /> 					
+					<property name="attr" value="form" />  
+				</interceptor>
+				<interceptor class="com.tessera.site.form.enums.EnumsInterceptor" /> 
+				<!-- show the page -->			
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Enums Form Results" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/enums/result.jsp" /> 
+				</interceptor>
+			</action>
+		</prefix>
+		
+		<prefix name="files">
+		</prefix>
+		
+		<prefix name="multiple">
+			<action name="form">				
+				<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+					<property name="class" value="com.tessera.site.form.multiple.MultipleForm" />
+					<property name="attr" value="form1" />  
+					<property name="clobber" value="NONE" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+					<property name="class" value="com.tessera.site.form.multiple.MultipleForm" />
+					<property name="attr" value="form2" />  
+					<property name="clobber" value="NONE" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Multiple Forms" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/multiple/input.jsp" /> 
+				</interceptor>
+			</action>
+			
+			<action name="submit1">
+				<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+					<property name="uri" value="/form/multiple/form" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+					<property name="class" value="com.tessera.site.form.multiple.MultipleForm" />
+					<property name="debug" value="true" />
+					<property name="attr" value="form1" />  
+				</interceptor>
+				<interceptor class="com.tessera.site.form.multiple.MultipleInterceptor" >
+					<property name="form" value="form1" /> 
+				</interceptor> 
+				<!-- show the page -->			
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Multiple Form Results" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/multiple/output1.jsp" /> 
+				</interceptor>
+			</action>
+
+			<action name="submit2">
+				<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+					<property name="uri" value="/form/multiple/form" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+					<property name="class" value="com.tessera.site.form.multiple.MultipleForm" />
+					<property name="debug" value="true" />
+					<property name="attr" value="form2" />  
+				</interceptor>
+				<interceptor class="com.tessera.site.form.multiple.MultipleInterceptor" >
+					<property name="form" value="form2" /> 
+				</interceptor> 
+				<!-- show the page -->			
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Multiple Form Results" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/multiple/output2.jsp" /> 
+				</interceptor>
+			</action>
+		</prefix>
+		
+		<prefix name="validator">
+			<action name="form">
+				<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+					<property name="class" value="com.tessera.site.form.validator.ValidatorForm" />
+					<property name="attr" value="form" />  
+					<property name="clobber" value="NONE" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Validator Form" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/validator/input.jsp" /> 
+				</interceptor>
+			</action>
+			
+			<action name="submit">
+				<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+					<property name="uri" value="/form/validator/form" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+					<property name="class" value="com.tessera.site.form.validator.ValidatorForm" />
+					<property name="debug" value="true" /> 
+					<property name="attr" value="form" />  
+				</interceptor>
+				<interceptor class="com.tessera.site.form.validator.ValidatorInterceptor" /> 
+				<!-- show the page -->			
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Validator Form Results" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/validator/output.jsp" /> 
+				</interceptor>
+			</action>
+		</prefix>
+	
+		<prefix name="wizard">
+		</prefix>
+	
+		<prefix name="structured">
+			<action name="form">
+				<interceptor class="com.tessera.intercept.form.InstantiateFormInterceptor">
+					<property name="class" value="com.tessera.site.form.structured.StructuredForm" />
+					<property name="attr" value="form" />  
+					<property name="clobber" value="NONE" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Structured Form" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/structured/input.jsp" /> 
+				</interceptor>
+			</action>
+			
+			<action name="submit">
+				<interceptor class="com.tessera.intercept.util.SetFailureInterceptor">
+					<property name="uri" value="/form/structured/form" /> 
+				</interceptor>
+				<interceptor class="com.tessera.intercept.form.BindFormInterceptor">
+					<property name="class" value="com.tessera.site.form.structured.StructuredForm" />
+					<property name="enumNameConverter.0" value="com.tessera.site.form.structured.Gender" /> 
+					<property name="enumNameConverter.1" value="com.tessera.site.form.structured.Currency" /> 
+					<property name="debug" value="true" /> 
+					<property name="attr" value="form" />  
+				</interceptor>
+				<interceptor class="com.tessera.site.form.structured.StructuredInterceptor" /> 
+				<!-- show the page -->			
+				<interceptor class="com.tessera.intercept.jsp.SetTitleInterceptor">
+					<property name="title" value="Tessera - Structured Form Results" />  
+				</interceptor>
+				<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+					<property name="slot.0" value="body" /> 
+					<property name="path.0" value="/WEB-INF/page/form/structured/output.jsp" /> 
+				</interceptor>
+			</action>
+		</prefix>
+
+	</prefix>
+</mappings>
+
+<!-- EOF --> 

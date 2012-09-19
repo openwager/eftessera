@@ -1,0 +1,102 @@
+#footer {
+	margin-top: 25px; 
+	border-top: 1px dotted gray;
+	text-align: center; 
+	padding: 5px;
+	background-color: #c8d9db;
+}
+
+#header { 
+	background-color: #c8d9db;
+	border-bottom: 1px dotted gray;
+	padding: 15px;  
+}
+
+#wrapper {
+	margin: 0px 20px 20px 20px;
+	width: 950px; 
+}
+body {
+	margin: 0px;
+	background-color: #d6e8ea;
+	color: #333;
+	font-family: arial, san-serif;
+}
+
+a {
+	text-decoration: none;  
+	color: #009fba;
+}
+
+a:hover {
+	color: #009fba;
+	text-decoration: underline; 	 
+}
+
+#body { 
+	min-height: 500px; 
+}
+
+.fieldError 
+{ 
+	background: #fffce4 url('/tessera/r/i/bang.png') no-repeat ;
+	background-position: 3px 3px;  
+	border: 1px solid #999; 
+	x-background: #edd; 
+	color: red;	
+	font-family: arial; 
+	padding: 2px 8px 2px 22px; 
+}
+
+table.formTable 
+{ 
+	x-border-top: 1px solid gray; 
+	x-border-left: 1px solid gray;
+	border-collapse: collapse; 
+}
+
+table.formTable th, table.formTable td 
+{
+	x-border-right: 1px solid gray; 
+	x-border-bottom: 1px solid gray;
+	padding: 2px;
+}
+	
+table.formTable th 
+{
+	text-align: right;  
+}
+	
+a.abutton 
+{
+	x-border: 1px solid gray;
+	background-color: #d6e8ea;
+	x-font-weight: bold;  
+	x-font-size: 85%;
+	padding: 2px;
+	border: 1px dotted #009fba;
+}
+
+a.abutton:hover 
+{
+	background-color: #009fba;
+	color: white;
+	text-decoration: none; 
+}	
+
+
+table.xxx 
+{ 
+	border-top: 1px solid gray; 
+	border-left: 1px solid gray; 
+	border-collapse: collapse; 
+}
+table.xxx td, table.xxx th 
+{
+	border-right: 1px solid gray; 
+	border-bottom: 1px solid gray; 
+	padding: 3px;
+}
+
+
+/* EOF */

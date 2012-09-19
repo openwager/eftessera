@@ -1,0 +1,12 @@
+<?xml version="1.0"?> 
+
+<mappings>
+	<action name="/reload">
+		<interceptor class="com.tessera.intercept.util.ReloadMappingsInterceptor" />
+        <interceptor class="com.tessera.intercept.util.SendRedirectInterceptor">
+                <property name="page" value="/" />
+        </interceptor>
+	</action>
+</mappings>
+
+<!-- EOF --> 

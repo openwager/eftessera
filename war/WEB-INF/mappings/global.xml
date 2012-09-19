@@ -1,0 +1,101 @@
+<?xml version="1.0"?> 
+
+<mappings> 
+	<action name="^">	
+		<interceptor class="com.tessera.intercept.util.SystemErrInterceptor">
+			<property name="expression" value="tessera.^" /> 
+		</interceptor>
+		<interceptor class="com.tessera.intercept.jsp.SetTemplateInterceptor">
+			<property name="template" value="/WEB-INF/template/basic.jsp" /> 
+		</interceptor>
+		<interceptor class="com.tessera.intercept.jsp.AssignJspsInterceptor">
+			<property name="slot.0" value="header" /> 
+			<property name="path.0" value="/WEB-INF/page/header.jsp" /> 
+			<property name="slot.1" value="footer" /> 
+			<property name="path.1" value="/WEB-INF/page/footer.jsp" /> 
+		</interceptor>
+
+
+		<!--  Setup the YUI stuff -->
+
+		<interceptor class="com.tessera.intercept.util.ActionSubcallInterceptor">
+			<property name="action" value="yui/tools/base" /> 
+		</interceptor>		 
+
+		<!--  Setup the local CSS and JS -->
+
+		<interceptor class="com.tessera.intercept.jsp.AddStylesheetsInterceptor">
+			<property name="path.0" value="/tessera/r/css/tessera.css" /> 
+		</interceptor>
+		<interceptor class="com.tessera.intercept.jsp.AddJavascriptsInterceptor"> 
+			<property name="path.0" value="/tessera/r/js/tessera.js" /> 
+		</interceptor>
+		<interceptor class="com.tessera.intercept.servlet.GetContextPathInterceptor">
+			<property name="attr" value="APP" />  
+		</interceptor>
+
+		<!-- Check for an A cookie (tracking) and give them one if they don't have one -->
+
+		<interceptor class="com.tessera.intercept.login.cookie.IfACookieInterceptor">
+			<case name="false">
+				<interceptor class="com.tessera.intercept.login.cookie.SetACookieInterceptor">
+					<property name="overwrite" value="true" /> 
+					<property name="domain" value=".weaselworks.com" />
+	 				<property name="maxAge" value="2147483647" /> 
+				</interceptor>
+			</case>
+		</interceptor>
+
+		<!-- If they're not logged in, check for a C cookie (autologin) and attempt a login -->
+		
+		<interceptor class="com.tessera.intercept.login.IfNotLoggedInInterceptor" >
+			<interceptor class="com.tessera.intercept.login.cookie.IfCCookieInterceptor">
+				<interceptor class="com.tessera.intercept.login.AutoLoginInterceptor" > 
+					<property name="generator" value="com.tessera.site.login.CookieGenerator" /> 
+					<property name="domain" value=".weaselworks.com" />
+				</interceptor>				
+			</interceptor>
+		</interceptor>		
+
+		<!-- Setup any necessary debugging -->
+
+		<interceptor class="com.tessera.intercept.util.ActionSubcallInterceptor">
+			<property name="action" value="debug" /> 
+		</interceptor>		 
+	</action>
+	
+	<action name="$">
+<!--  
+		<interceptor class="com.tessera.intercept.util.SystemErrInterceptor">
+			<property name="expression" value="tessera.$" /> 
+		</interceptor>
+ -->
+		<interceptor class="com.tessera.intercept.jsp.RenderTemplateInterceptor" />	
+<!-- 
+		<interceptor class="com.tessera.intercept.util.InstantiateClassInterceptor" >
+			<property name="attr" value="a" /> 
+			<property name="context" value="REQUEST" /> 
+			<property name="class" value="com.tessera.intercept.util.DebugBean" />  
+		</interceptor>
+		<interceptor class="com.tessera.intercept.util.InstantiateClassFactoryInterceptor" >
+			<property name="attr" value="b" /> 
+			<property name="context" value="APPLICATION" /> 
+			<property name="class" value="com.tessera.intercept.util.DebugBeanFactory" />  
+		</interceptor>
+-->
+<!-- 
+		<interceptor class="com.tessera.intercept.util.ActionSubcallInterceptor" enabled="false">
+			<property name="action" value="$/dump" /> 
+		</interceptor>		 
+ -->
+ 	</action>
+	
+	<action name="$/dump">
+		<interceptor class="com.tessera.intercept.util.DumpRequestAttributesInterceptor" /> 
+		<interceptor class="com.tessera.intercept.util.DumpDispatchContextInterceptor" /> 
+		<interceptor class="com.tessera.intercept.util.DumpSessionAttributesInterceptor" /> 
+		<interceptor class="com.tessera.intercept.util.DumpApplicationAttributesInterceptor" /> 
+	</action>
+</mappings>
+
+<!-- EOF --> 
