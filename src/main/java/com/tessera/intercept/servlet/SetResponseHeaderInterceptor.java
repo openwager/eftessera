@@ -25,7 +25,8 @@ public class SetResponseHeaderInterceptor
     Alteration intercept (final HttpServletRequest req, final HttpServletResponse res, DispatchContext dc)
     {
     	for (final String header : props.keySet ()) { 
-    		res.setHeader (header, props.get (header)); 
+    		final String val = props.get (header); 
+    		res.setHeader (header, val); 
     	}
     	return NO_ALTERATION;
     }

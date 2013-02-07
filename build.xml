@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 
-<project name="tessera" default="help" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant" >
+<project name="eftessera" default="help" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant" >
 
 	<!-- Load in their environment-specific propeties -->
 
@@ -81,20 +81,20 @@ Available targets:
 			<remoteRepository refid="java.net" />
 			<localRepository refid="local" />
 
-			<dependency groupId="org.json" artifactId="json" version="${json.version}" />
-			<dependency groupId="log4j" artifactId="log4j" version="${log4j.version}" />
-			<dependency groupId="javaee" artifactId="javaee-api" version="${javaee.version}" />
-			<dependency groupId="org.testng" artifactId="testng" version="${testng.version}" />
+			<dependency groupId="${json.group}" artifactId="${json.artifact}" version="${json.version}" />
+			<dependency groupId="${log4j.group}" artifactId="${log4j.artifact}" version="${log4j.version}" />
+			<dependency groupId="${javaee.group}" artifactId="${javaee.artifact}" version="${javaee.version}" />
+			<dependency groupId="${testng.group}" artifactId="${testng.artifact}" version="${testng.version}" />
 			<dependency groupId="${efcore.group}" artifactId="${efcore.artifact}" version="${efcore.version}" />
 			<dependency groupId="${eflattice.group}" artifactId="${eflattice.artifact}" version="${eflattice.version}" />
-			<dependency groupId="javax.transaction" artifactId="jta" version="${jta.version}" />
-			<dependency groupId="hibernate" artifactId="hibernate" version="3.0.5" />
-			<dependency groupId="hibernate" artifactId="hibernate-entitymanager" version="3.4.0.GA" />
+			<dependency groupId="${jta.group}" artifactId="${jta.artifact}" version="${jta.version}" />
+			<dependency groupId="${hibernate.group}" artifactId="${hibernate.artifact}" version="${hibernate.version}" />
+			<dependency groupId="${hibernate-em.group}" artifactId="${hibernate-em.artifact}" version="${hibernate-em.version}" />
 
-			<dependency groupId="commons-beanutils" artifactId="commons-beanutils" version="${commons-beanutils.version}" />
-			<dependency groupId="commons-jexl" artifactId="commons-jexl" version="${commons-jexl.version}" />
-			<dependency groupId="commons-lang" artifactId="commons-lang" version="${commons-lang.version}" />
-			<dependency groupId="commons-fileupload" artifactId="commons-fileupload" version="${commons-fileupload.version}" />
+			<dependency groupId="${commons-beanutils.group}" artifactId="${commons-beanutils.artifact}" version="${commons-beanutils.version}" />
+			<dependency groupId="${commons-jexl.group}" artifactId="${commons-jexl.artifact}" version="${commons-jexl.version}" />
+			<dependency groupId="${commons-lang.group}" artifactId="${commons-lang.artifact}" version="${commons-lang.version}" />
+			<dependency groupId="${commons-fileupload.group}" artifactId="${commons-fileupload.artifact}" version="${commons-fileupload.version}" />
 		</artifact:dependencies>
 		<copy todir="${lib.dir}">
 			<fileset refid="dependency.fileset" />
@@ -236,7 +236,7 @@ Available targets:
 	<target name="maven-global-snapshot" depends="maven-local" if="snapshot">
 		<echo>Deploying to SNAPSHOT</echo>
 		<artifact:deploy file="${target.dir}/${output}.jar">
-			<remoteRepository refid="makingfun.snapshots" />
+			<remoteRepository refid="etherfirma.snapshots" />
 			<pom refid="mypom"/>
 			<attach file="${target.dir}/${output}-sources.jar" type="jar" classifier="sources"/>
 			<attach file="${target.dir}/${output}-javadoc.jar" type="jar" classifier="javadoc"/>
@@ -248,7 +248,7 @@ Available targets:
 	<target name="maven-global-release" depends="maven-local" unless="snapshot" >
 		<echo>Deploying to RELEASE</echo>
 		<artifact:deploy file="${target.dir}/${output}.jar">
-			<remoteRepository refid="makingfun.releases" />
+			<remoteRepository refid="etherfirma.releases" />
 			<pom refid="mypom"/>
 			<attach file="${target.dir}/${output}-sources.jar" type="jar" classifier="sources"/>
 			<attach file="${target.dir}/${output}-javadoc.jar" type="jar" classifier="javadoc"/>
