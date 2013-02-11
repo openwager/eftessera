@@ -3,7 +3,6 @@
 <project name="eftessera" default="help" basedir="." xmlns:artifact="antlib:org.apache.maven.artifact.ant" >
 
 	<!-- Load in their environment-specific propeties -->
-
 	<property file="${user.home}/build.properties" />
 	<property file="config.properties" /> 
 
