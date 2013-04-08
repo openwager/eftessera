@@ -42,7 +42,7 @@ public class GetParameterMapInterceptor
 		public String ATTR = "param"; 
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public
 	Alteration intercept (final HttpServletRequest req, final HttpServletResponse res, DispatchContext dc)
 		throws Exception

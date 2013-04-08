@@ -29,7 +29,6 @@ extends InterceptorSupport
 		public int NO_LOGIN_MANAGER = 1; 
 	}
 	
-	@SuppressWarnings ("unchecked")
 	public
 	Alteration intercept (final HttpServletRequest req, final HttpServletResponse res, final DispatchContext dc)
 	    throws Exception
