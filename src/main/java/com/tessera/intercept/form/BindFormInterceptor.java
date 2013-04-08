@@ -120,13 +120,13 @@ public class BindFormInterceptor
         	// TODO: Clean this up later.
         	
         	final ClassLoader cload = Thread.currentThread ().getContextClassLoader (); 
-        	final Class convtype = cload.loadClass (conv);
+        	final Class<?> convtype = cload.loadClass (conv);
         	// TODO: check for assignability/castness
 //        	if (convtype.isAssignableFrom (Converter.class)) {
 //        		throw new IllegalStateException ("Not a converter: " + conv); 
 //        	}
         	final Converter obj = (Converter) convtype.newInstance ();  
-        	final Class converted = cload.loadClass (type); 
+        	final Class<?> converted = cload.loadClass (type); 
         	cons.register (obj, converted); 
         	if (getDebug ()) { 
         		logger.info ("Converter registered [" + conv + " -> " + type + "]"); 
@@ -142,7 +142,8 @@ public class BindFormInterceptor
         		break; 
         	}
         	final ClassLoader cload = Thread.currentThread ().getContextClassLoader ();
-        	final Class ctype = cload.loadClass (etype);
+        	@SuppressWarnings("rawtypes")
+			final Class ctype = cload.loadClass (etype);
         	// TODO: check for enum-ness
         	final Converter conv = EnumNameConverter.newInstance (ctype); 
         	cons.register (conv, ctype);         
@@ -158,7 +159,8 @@ public class BindFormInterceptor
         		break; 
         	}
         	final ClassLoader cload = Thread.currentThread ().getContextClassLoader ();
-        	final Class ctype = cload.loadClass (etype);
+        	@SuppressWarnings("rawtypes")
+			final Class ctype = cload.loadClass (etype);
         	// TODO: check for enum-ness
         	final Converter conv = EnumOrdinalConverter.newInstance (ctype); 
         	cons.register (conv, ctype);         
@@ -174,7 +176,8 @@ public class BindFormInterceptor
         		final String field = key.substring (PROP.FIELD_CONVERTER.length ());
         		final String className = getProperty (key);
             	final ClassLoader cload = Thread.currentThread ().getContextClassLoader ();
-            	final Class ctype = cload.loadClass (className);
+            	@SuppressWarnings("rawtypes")
+				final Class ctype = cload.loadClass (className);
             	final Converter converter = (Converter) ctype.newInstance (); 
             	fieldConverters.put (field, converter); 
             	if (getDebug ()) { 

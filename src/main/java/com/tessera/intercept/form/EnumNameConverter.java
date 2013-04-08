@@ -24,7 +24,7 @@ public class EnumNameConverter <T extends Enum<T>>
 	public void setType (final Class<T> type) { this.type = type; return; }
 	public Class<T> getType () { return this.type; }
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public
 	Object convert (Class arg0, Object arg1)
 	{

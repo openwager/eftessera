@@ -51,7 +51,7 @@ class JexlUtil
  *
  */
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 class JexlReplacementContext 
 	implements JexlContext
 {

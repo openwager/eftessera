@@ -38,7 +38,7 @@ public class EnumOrdinalConverter <T extends Enum<T>>
 	 * 
 	 */
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
 	public
 	T convert (final Class arg0, final Object arg1)
 	{

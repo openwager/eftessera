@@ -28,7 +28,7 @@ public class SpecialDateConverter
 	protected DateFormat f2 = new SimpleDateFormat ("MM/dd/yyyy"); 
 	protected DateFormat f3 = new SimpleDateFormat ("MM/dd/yyyy hh:mm:ss"); 
 	
-	@SuppressWarnings ("unchecked")
+	@SuppressWarnings ("rawtypes")
 	public 
 	Object convert (Class arg0, Object arg1) 
 	{

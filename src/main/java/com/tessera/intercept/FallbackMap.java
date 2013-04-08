@@ -9,7 +9,7 @@ import java.util.*;
  * @param <A>
  */
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings("rawtypes")
 // package
 class FallbackMap
 	implements Map

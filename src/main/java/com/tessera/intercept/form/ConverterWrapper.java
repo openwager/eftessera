@@ -25,7 +25,7 @@ public class ConverterWrapper
 	public Converter getConverter () { return this.conv; } 
 	public void setConverter (final Converter conv) { this.conv = conv; return; } 
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("rawtypes")
     public
     Object convert (final Class type, final Object value)
     {
