@@ -53,11 +53,15 @@ abstract class RemoveCookieInterceptor
     Alteration intercept (final HttpServletRequest req, final HttpServletResponse res, final DispatchContext dc)
         throws Exception
     {
-		final CookieManager cm = getCookieManager (req); 
-		final String cookie = getCookie (cm); 
-		final String domain = cm.getDomain (); 
-		final String path = cm.getPath (); 
-	    CookieUtil.deleteCookie (res, cookie, domain, path);
+		final CookieManager cm = getCookieManager (req);
+		if (cm == null) { 
+			logger.error ("No cookie manager configured."); 
+		} else { 	
+			final String cookie = getCookie (cm); 
+			final String domain = cm.getDomain (); 
+			final String path = cm.getPath (); 
+		    CookieUtil.deleteCookie (res, cookie, domain, path);
+		}
 	    return NO_ALTERATION;
     }	
 }

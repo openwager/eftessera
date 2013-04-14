@@ -53,7 +53,11 @@ abstract class IfCookieInterceptorSupport
     boolean evaluate (final HttpServletRequest req, final HttpServletResponse res)
         throws Exception
     {
-		final CookieManager cm = getCookieManager (req); 
+		final CookieManager cm = getCookieManager (req);
+		if (cm == null) { 
+			logger.error ("No cookie manager configured."); 
+			return false; 
+		}
 		final String cookie = getCookie (cm); 
 		if (cookie == null) { 
 			return false; 
