@@ -1,0 +1,11 @@
+org.json:json:20090211
+log4j:log4j:1.2.16
+javaee:javaee-api:5
+org.testng:testng:6.5.2
+javax.transaction:jta:1.1
+etherfirma:efcore:1.0.1-SNAPSHOT
+etherfirma:eflattice:1.0.1-SNAPSHOT
+commons-fileupload:commons-fileupload:1.2.1
+commons-lang:commons-lang:2.4
+commons-jexl:commons-jexl:1.1
+commons-beanutils:commons-beanutils:1.8.3

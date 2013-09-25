@@ -78,7 +78,10 @@ Available targets:
 		   versionsId="dependency.versions" useScope="runtime"
 		>
 			<remoteRepository refid="java.net" />
-			<localRepository refid="local" />
+			
+			<remoteRepository refid="openwager.snapshots" />
+			<remoteRepository refid="openwager.thirdparty" />
+			<remoteRepository refid="openwager.releases" />
 
 			<dependency groupId="${json.group}" artifactId="${json.artifact}" version="${json.version}" />
 			<dependency groupId="${log4j.group}" artifactId="${log4j.artifact}" version="${log4j.version}" />
@@ -235,7 +238,7 @@ Available targets:
 	<target name="maven-global-snapshot" depends="maven-local" if="snapshot">
 		<echo>Deploying to SNAPSHOT</echo>
 		<artifact:deploy file="${target.dir}/${output}.jar">
-			<remoteRepository refid="etherfirma.snapshots" />
+			<remoteRepository refid="openwager.snapshots" />
 			<pom refid="mypom"/>
 			<attach file="${target.dir}/${output}-sources.jar" type="jar" classifier="sources"/>
 			<attach file="${target.dir}/${output}-javadoc.jar" type="jar" classifier="javadoc"/>
@@ -247,7 +250,7 @@ Available targets:
 	<target name="maven-global-release" depends="maven-local" unless="snapshot" >
 		<echo>Deploying to RELEASE</echo>
 		<artifact:deploy file="${target.dir}/${output}.jar">
-			<remoteRepository refid="etherfirma.releases" />
+			<remoteRepository refid="openwager.releases" />
 			<pom refid="mypom"/>
 			<attach file="${target.dir}/${output}-sources.jar" type="jar" classifier="sources"/>
 			<attach file="${target.dir}/${output}-javadoc.jar" type="jar" classifier="javadoc"/>
