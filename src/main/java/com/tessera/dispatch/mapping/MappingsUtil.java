@@ -29,7 +29,7 @@ public class MappingsUtil
 	{
 		return; 
 	}
-	
+		
 	/**
 	 * 
 	 * @param path
@@ -40,7 +40,8 @@ public class MappingsUtil
 	void loadMappings (final String path, final Dispatcher disp)
 		throws IOException
 	{
-		if (path.startsWith (File.separator + "WEB-INF")) {
+//		if (path.startsWith (File.separator + "WEB-INF")) {
+		if (path.substring (1, 8).equals ("WEB-INF")) {
 			final String realPath = disp.getServletContext ().getRealPath (path); 
 			loadMappings (new File (realPath), disp); 
 		} else { 
