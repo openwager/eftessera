@@ -10,6 +10,7 @@ import javax.servlet.jsp.*;
 import com.tessera.dispatch.*;
 import com.tessera.intercept.*;
 import com.weaselworks.util.*;
+import com.weaselworks.util.Base64;
 
 /**
  * 
