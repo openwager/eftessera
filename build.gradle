@@ -20,6 +20,7 @@ configurations {
 }
 
 repositories {
+  mavenLocal ()
   mavenCentral ()
 
   maven { 
@@ -64,7 +65,7 @@ dependencies {
   compile 'javaee:javaee-api:5'
   compile 'org.testng:testng:6.5.2'
   compile 'javax.transaction:jta:1.1'
-  compile 'com.etherfirma:efcore:1.0.4-gradle-SNAPSHOT'
+  compile 'com.etherfirma:efcore:1.1.0-gradle-SNAPSHOT'
   compile 'com.etherfirma:eflattice:1.0.0-gradle-SNAPSHOT'
   compile 'commons-fileupload:commons-fileupload:1.2.1'
   compile 'commons-lang:commons-lang:2.4'
