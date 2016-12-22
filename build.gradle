@@ -88,4 +88,19 @@ task showCredentials << {
    } 
 } 
 
+jar {
+
+  from("src/main/java") {
+
+    include "**/*.tld"
+
+    eachFile { details ->
+      if (details.name.contains('tld')) {
+        details.path = "META-INF/$details.name"
+      }
+    }
+  }
+
+}
+
 // EOF 
