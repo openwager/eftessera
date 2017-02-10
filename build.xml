@@ -12,7 +12,7 @@
 	<!-- Determine the name of our artifacts based on the version -->
 
 	<property name="output" value="eftessera-${version}" />
-	<property name="pom.group" value="etherfirma" />
+	<property name="pom.group" value="com.etherfirma" />
 	<property name="pom.artifact" value="eftessera" />
 	<property name="javac.debug" value="true" /> 
 	<property name="javac.debug.level" value="lines,vars,source" /> 
