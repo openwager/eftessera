@@ -252,8 +252,6 @@ Available targets:
 		<artifact:deploy file="${target.dir}/${output}.jar">
 			<remoteRepository refid="openwager.releases" />
 			<pom refid="mypom"/>
-			<attach file="${target.dir}/${output}-sources.jar" type="jar" classifier="sources"/>
-			<attach file="${target.dir}/${output}-javadoc.jar" type="jar" classifier="javadoc"/>
 		</artifact:deploy>
 	</target>
 	
